@@ -20,7 +20,7 @@ Cargo is still in a very early state, but it is already usable, please help me d
  - __Devtools__: Cargo has full support for chrome's devtools
  - __Cross platform__: Cargo looks good on all platforms, even the titlebar on windows looks good
  - __Simple__: Cargo only has the features most people need
- - __Very cute__: 🚂🚋🚋 Choo choo!!
+ - __Very cute__: 🚂🚋🚋 Cargo(delivering the web to your home)!!
 
 ## Screenshots
 
