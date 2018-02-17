@@ -59,6 +59,7 @@ Cargo is still very much work in progress, but we can work together to make it t
  - Settings
     - Search engine
     - Darkmode
+    - ...
 
 ## Development
 
