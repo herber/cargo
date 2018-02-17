@@ -50,6 +50,7 @@ Cargo is still very much work in progress, but we can work together to make it t
 
 #### TODO
 
+ - Better url detection
  - Tests
  - History
  - Design improvements
