@@ -70,7 +70,7 @@ To build cargo you only need to have [nodejs](https://nodejs.org) and [yarn](htt
 Install all the dependencies(this might take a while)
 
 ```
-$ yarn installed
+$ yarn install
 ```
 
 Run cargo
