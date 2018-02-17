@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cargo - Home</title>
+    <style media="screen">
+      body {
+        margin: 0px;
+        padding: 0px;
+        left: 0px;
+        top: 0px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        height: 100vh;
+      }
+
+      .dest {
+        text-align: center;
+        color: #616161;
+        padding: 10px;
+        width: 550px;
+        border: solid transparent 1px;
+        border-radius: 3px;
+        outline: none;
+        transition: all .3s;
+        background: #F5F5F5;
+        margin: 15px auto;
+      }
+
+      .dest:hover, .dest:focus {
+        border: solid #BDBDBD 1px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>🚂🚋🚋 Cargo</h1>
+    <p class="text">-</p>
+    <input type="text" class="dest" placeholder="Destination">
+
+    <script src="../static/tld.js" charset="utf-8"></script>
+    <script src="../static/normalize.js" charset="utf-8"></script>
+    <script src="../static/vkey.js" charset="utf-8"></script>
+    <script type="text/javascript">
+      document.querySelector('.dest').addEventListener('keydown', (ev) => {
+        if (vkey[ev.keyCode] == '<enter>') {
+          ev.preventDefault();
+
+          const url = normalizeUrl(document.querySelector('.dest').value);
+          const parsed = tldjs.parse(url, true);
+
+          if (parsed.domain != null && parsed.isValid == true) {
+            window.location.href = url;
+          } else {
+            window.location.href = `https://duckduckgo.com/?q=${ document.querySelector('.dest').value }`;
+          }
+        }
+      }, false);
+
+      const texts = [
+        'Where is the next train station?',
+        'Let the train carry you!',
+        'Hop in!',
+        'Did you buy a ticket?',
+        'Could I sit next to the window?',
+        'Do we have an internet connection?',
+        'When does the next train going home leave?',
+      ];
+
+      const key = Math.floor((Math.random() * texts.length) + 1) - 1;
+
+      document.querySelector('.text').textContent = texts[key];
+    </script>
+  </body>
+</html>
