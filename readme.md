@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="300px" src="https://i.imgur.com/Cpu8v9W.png" />
+  <img width="200px" src="https://i.imgur.com/XfHbapN.png" />
   <h1 align="center">Cargo</h1>
 </p>
 
