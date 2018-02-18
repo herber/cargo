@@ -6,11 +6,6 @@ module.exports = (emitter, state) => {
     return false;
   });
 
-  mousetrap.bind(['command+shift+d', 'ctrl+shift+d'], () => {
-    emitter.emit('menu-toggle');
-    return false;
-  });
-
   mousetrap.bind(['command+m', 'ctrl+m'], () => {
     emitter.emit('menu-toggle');
     return false;
