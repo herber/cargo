@@ -11,7 +11,7 @@ Cargo is a browser for people that live on the internet and hate mice. Cargo can
 
 Cargo is still in a very early state, but it is already usable, please help me developing it.
 
-> Binaries will be available very soon!
+You can use one of our precompiled [binaries](https://github.com/herber/cargo/releases/latest) to try out or install cargo.
 
 ## Features
 
