@@ -91,11 +91,16 @@ li.active {
 }
 
 .close {
-  position: absolute!important;
+  position: absolute !important;
   right: 7px;
   top: 9px;
   opacity: 0;
   transition: all .3s;
+  cursor: pointer;
+}
+
+.close:hover {
+  font-weight: 900;
 }
 `;
 
