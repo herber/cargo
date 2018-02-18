@@ -178,7 +178,7 @@ module.exports = (emitter, state) => {
   });
 
   emitter.on('tabs-toggle', () => {
-    if (toggle) {
+    if (element.style.display == 'block') {
       clearTimeout(closeTabsTimeout);
 
       element.style.opacity = '0';
@@ -187,7 +187,7 @@ module.exports = (emitter, state) => {
         element.style.display = 'none';
       }, 280);
 
-      toggle = !toggle;
+      toggle = false;
     } else {
       element.style.display = 'block';
 
@@ -195,7 +195,7 @@ module.exports = (emitter, state) => {
         element.style.opacity = '1';
       }, 5);
 
-      toggle = !toggle;
+      toggle = true;
 
       clearTimeout(closeTabsTimeout);
       closeTabsTimeout = setTimeout(() => {
