@@ -128,6 +128,10 @@ module.exports = (emitter, state) => {
             title = dotify(webview.getTitle());
           } catch (err) {}
 
+          if (title == '' || title == ' ' || title == undefined) {
+            title = dotify(webview.getURL());
+          }
+
           let closeClicked = false;
 
           return html`<li class="${ active == true ? 'active' : '' }" onclick=${ () => {
