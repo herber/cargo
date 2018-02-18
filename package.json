@@ -1,7 +1,7 @@
 {
   "name": "cargo",
   "productName": "Cargo",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A browser with a really thin ui",
   "license": "MIT",
   "repository": "herber/cargo",
@@ -9,7 +9,7 @@
   "author": {
     "name": "Tobias Herber",
     "email": "tobihrbr@gmail.com",
-    "url": "tobihrbr.com"
+    "url": "http://tobihrbr.com"
   },
   "scripts": {
     "test": "formatted",
