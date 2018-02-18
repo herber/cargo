@@ -74,6 +74,9 @@
     ],
     "win": {
       "icon": "./src/static/icon.ico"
+    },
+    "mac": {
+      "icon": "./src/static/icon.icns"
     }
   }
 }
