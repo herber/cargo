@@ -44,6 +44,9 @@ const topbarStyle = vxv`
       border: solid #BDBDBD 1px;
       background: #FAFAFA;
     }
+
+    &::-moz-selection { background: yellow; }
+    &::selection { background: yellow; }
   }
 `;
 
