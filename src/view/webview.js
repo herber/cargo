@@ -177,7 +177,13 @@ module.exports = (emitter, state) => {
       w.close();
     }
 
-    changeView(id - 1);
+    id = id - 1;
+
+    if (id < 0) {
+      id = 0;
+    }
+
+    changeView(id);
   };
 
   /*
