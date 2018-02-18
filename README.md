@@ -56,7 +56,6 @@ Cargo is still very much work in progress, but we can work together to make it t
  - Design improvements
  - Use cargo for new windows
  - Downloads
- - Tab restore
  - Settings
     - Search engine
     - Darkmode
@@ -108,4 +107,4 @@ $ yarn build:all
 
 ## License
 
-MIT © [Tobias Herber](http://tobihrbr.com)
+MIT © [Tobias Herber](https://twitter.com/tobiasherber_)
