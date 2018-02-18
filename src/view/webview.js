@@ -172,6 +172,8 @@ module.exports = (emitter, state) => {
     focusedView = 0;
 
     if (state.views.length == 0) {
+      emitter.emit('tabs-db-flush');
+
       const remote = require('electron').remote;
       let w = remote.getCurrentWindow();
       w.close();
