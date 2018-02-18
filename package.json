@@ -29,6 +29,7 @@
     "electron"
   ],
   "dependencies": {
+    "dexie": "^2.0.1",
     "electron-debug": "^1.0.0",
     "electron-is-dev": "^0.3.0",
     "electron-titlebar": "^0.0.3",
