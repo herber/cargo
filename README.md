@@ -44,6 +44,63 @@ You can use one of our precompiled [binaries](https://github.com/herber/cargo/re
 
 ![Medium](https://i.imgur.com/umxDEtU.png)
 
+## Keyboard shortcuts
+
+<table>
+  <tr>
+    <td class="shortcut">alt</td>
+    <td>Open menu</td>
+  </tr>
+  <tr>
+    <td class="shortcut">command + shift + d / ctrl + shift + d</td>
+    <td>Open devtools</td>
+  </tr>
+  <tr>
+    <td class="shortcut">command + shift + a / ctrl + shift + a</td>
+    <td>Open about page</td>
+  </tr>
+  <tr>
+    <td class="shortcut">command + left / ctrl + left</td>
+    <td>Navigate back</td>
+  </tr>
+  <tr>
+    <td class="shortcut">command + right / ctrl + right</td>
+    <td>Navigate forward</td>
+  </tr>
+  <tr>
+    <td class="shortcut">command + r / ctrl + r / F5</td>
+    <td>Reload</td>
+  </tr>
+  <tr>
+    <td class="shortcut">command + h / ctrl + h</td>
+    <td>Navigate to home.cargo</td>
+  </tr>
+  <tr>
+    <td class="shortcut">command + t / ctrl + t</td>
+    <td>Open a new tab</td>
+  </tr>
+  <tr>
+    <td class="shortcut">command + w / ctrl + w</td>
+    <td>Close current tab</td>
+  </tr>
+  <tr>
+    <td class="shortcut">command + shift + left / ctrl + shift + left</td>
+    <td>Go to previous tab</td>
+  </tr>
+  <tr>
+    <td class="shortcut">command + shift + right / ctrl + shift + right</td>
+    <td>Go to next tab</td>
+  </tr>
+  <tr>
+    <td class="shortcut">command + 0 / ctrl + 0</td>
+    <td>Go to last tab</td>
+  </tr>
+  <tr>
+    <td class="shortcut">command + [number from 1 to 9] / ctrl + [number from 1 to 9]</td>
+    <td>Go to n<i style="font-size: .7em;">th</i> tab</td>
+  </tr>
+</table>
+
 ## Future
 
 Cargo is still very much work in progress, but we can work together to make it the browser of our dreams.
