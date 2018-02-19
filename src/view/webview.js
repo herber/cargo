@@ -56,9 +56,11 @@ module.exports = (emitter, state) => {
   const pageTitleUpdated = () => {
     const webview = document.querySelector(`#${ state.views[focusedView].id }`);
     state.title = 'Loading';
+    state.url = '';
 
     try {
       state.title = webview.getTitle();
+      state.url = webview.getURL();
     } catch (err) {}
 
     emitter.emit('titlebar-title-updated');
