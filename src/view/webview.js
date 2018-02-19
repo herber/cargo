@@ -95,13 +95,15 @@ module.exports = (emitter, state) => {
         },
         title: 'Cargo',
         icon: path.join(__dirname, '../static/icon.png')
-     });
+      });
 
       win.on('closed', () => {
         win = null
       });
 
       win.loadURL(e.url);
+
+      win.setMenu(null);
     } else if (e.disposition == 'foreground-tab' || e.disposition == 'background-tab' || e.disposition == 'default' || e.disposition == 'other') {
       emitter.emit('tabs-create', e.url);
     }
