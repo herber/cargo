@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Cargo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+    <meta name="theme-color" content="#000000" />
+  </head>
+  <body>
+    <nav>
+      <span class="left"><a class="nav-link" href="/">Cargo</a></span>
+      <span class="right"><a class="nav-link" href="https://github.com/herber/cargo/releases/latest">Download</a><a class="nav-link" href="https://github.com/herber/cargo/">Github</a></span>
+    </nav>
+
+    <header>
+      <section class="header-text">
+        <h1>Cargo</h1>
+        <p>A browser with almost no UI.</p>
+        <a class="button" href="https://github.com/herber/cargo/releases/latest">Download now</a>
+      </section>
+      <img src="./example.png" alt="">
+    </header>
+
+    <section id="about" class="about">
+      <section class="about-inner">
+        <h1>Cargo is a new browser.</h1>
+        <p>
+          Cargo is a browser for people that live on the internet and hate mice.
+          Cargo can be controlled using only a few keyboard shortcuts.
+          Cargo only includes the most useful features of a browser,
+          this way unnecessary features can't disturb you while surfing the interwebz.
+          I built cargo, because I did not use most features that my browsers of choice(chrome and firefox) had.
+        </p>
+        <p>
+          Cargo is built using <a href="https://electronjs.org">electron</a>,
+          a technology for building modern cross platform desktop apps using javascript,
+          html and css. The source is available on <a href="https://github.com/herber/cargo">github</a>.
+        </p>
+
+        <h3>Features</h3>
+        <ul>
+          <li><strong>Chrome</strong>: Cargo uses electron’s webview tags, which are powered by chromium</li>
+          <li><strong>Tabs</strong>: Like any other browser cargo supports tabs, but it hides them from you</li>
+          <li><strong>Devtools</strong>: Cargo has full support for chrome’s devtools</li>
+          <li><strong>Cross platform</strong>: Cargo looks good on all platforms, even the titlebar on windows looks good</li>
+          <li><strong>Simple</strong>: Cargo only has the features most people need</li>
+          <li><strong>Very cute</strong>: 🚂🚋🚋 Cargo(delivering the web to your home)</li>
+        </ul>
+
+        <h3 id="shortcuts">Keyboard shortcuts</h3>
+        <table>
+          <tr>
+            <td class="shortcut">alt</td>
+            <td>Open menu</td>
+          </tr>
+          <tr>
+            <td class="shortcut">command + shift + d / ctrl + shift + d</td>
+            <td>Open devtools</td>
+          </tr>
+          <tr>
+            <td class="shortcut">command + shift + a / ctrl + shift + a</td>
+            <td>Open about page</td>
+          </tr>
+          <tr>
+            <td class="shortcut">command + left / ctrl + left</td>
+            <td>Navigate back</td>
+          </tr>
+          <tr>
+            <td class="shortcut">command + right / ctrl + right</td>
+            <td>Navigate forward</td>
+          </tr>
+          <tr>
+            <td class="shortcut">command + r / ctrl + r / F5</td>
+            <td>Reload</td>
+          </tr>
+          <tr>
+            <td class="shortcut">command + h / ctrl + h</td>
+            <td>Navigate to home.cargo</td>
+          </tr>
+          <tr>
+            <td class="shortcut">command + t / ctrl + t</td>
+            <td>Open a new tab</td>
+          </tr>
+          <tr>
+            <td class="shortcut">command + w / ctrl + w</td>
+            <td>Close current tab</td>
+          </tr>
+          <tr>
+            <td class="shortcut">command + shift + left / ctrl + shift + left</td>
+            <td>Go to previous tab</td>
+          </tr>
+          <tr>
+            <td class="shortcut">command + shift + right / ctrl + shift + right</td>
+            <td>Go to next tab</td>
+          </tr>
+          <tr>
+            <td class="shortcut">command + 0 / ctrl + 0</td>
+            <td>Go to last tab</td>
+          </tr>
+          <tr>
+            <td class="shortcut">command + [number from 1 to 9] / ctrl + [number from 1 to 9]</td>
+            <td>Go to n<i style="font-size: .7em;">th</i> tab</td>
+          </tr>
+        </table>
+      </section>
+    </section>
+
+    <!-- <script type="text/javascript">
+      const about = document.querySelector('#about');
+      const navLink = document.querySelectorAll('.nav-link');
+      const rect = about.getBoundingClientRect();
+
+      console.log(rect);
+
+      document.addEventListener('scroll', (e) => {
+        if (e.srcElement.scrollingElement.scrollTop >= rect.top) {
+          for (lnk of navLink) {
+            lnk.style.color = 'black';
+          }
+        } else {
+          for (lnk of navLink) {
+            lnk.style.color = 'white';
+          }
+        }
+      });
+    </script> -->
+  </body>
+</html>
