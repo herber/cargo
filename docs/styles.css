@@ -48,6 +48,10 @@ h1 {
   color: white;
 }
 
+img {
+  max-width: 100%;
+}
+
 .about {
   min-height: calc(100vh - 50px);
   padding: 25px;
@@ -74,15 +78,15 @@ nav {
   /* position: fixed; */
   position: absolute;
   top: 20px;
-  left: 0px;
-  right: 0px;
+  left: 20px;
+  right: 20px;
   font-size: .8em;
   z-index: 5;
 }
 
 nav a {
   color: white;
-  padding: 40px;
+  padding: 10px;
 }
 
 nav a:hover {
@@ -91,4 +95,25 @@ nav a:hover {
 
 .right {
   float: right;
+}
+
+@media (max-width: 960px) {
+  body {
+    font-size: 1em;
+  }
+
+  .about {
+    min-height: 100vh;
+    padding: 0px;
+  }
+
+  .about-inner {
+    width: calc(100% - 30px);
+    min-height: 100%;
+    padding: 15px;
+  }
+
+  .header-text {
+    margin: 10rem auto 5rem auto;
+  }
 }
