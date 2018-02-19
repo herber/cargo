@@ -65,7 +65,7 @@ module.exports = (emitter, state) => {
     emitter.emit('tabs-render');
   };
 
-  const didNavigate = () => {
+  const didNavigate = (e) => {
     const webview = document.querySelector(`#${ state.views[focusedView].id }`);
     state.url = webview.getURL();
     emitter.emit('titlebar-url-updated');
