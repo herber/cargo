@@ -22,7 +22,7 @@ module.exports = (onClosed) => {
     vibrancy: 'light',
     background: '#ffffff',
     titleBarStyle: 'hiddenInset',
-    frame: platform() != 'mac' ? false : true,
+    frame: platform() != 'macos' ? false : true,
     show: false,
     webPreferences: {
       nodeIntegration: true
