@@ -1,7 +1,7 @@
 const html = require('xou');
 const vxv = require('vxv');
 const alert = require('./alert.js');
-const pages = require('./pages.js');
+const betterUrl = require('./utils/betterURL');
 
 const styles = vxv`
 top: 41px;
@@ -114,18 +114,6 @@ const dotify = (str) => {
   }
 
   return str;
-};
-
-const betterUrl = (url) => {
-  if (url.startsWith('file:///')) {
-    for (let p in pages) {
-      if (url.indexOf(pages[p].substr(1)) != -1) {
-        return `https://${ p }`;
-      }
-    }
-  }
-
-  return url;
 };
 
 module.exports = (emitter, state) => {
