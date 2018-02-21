@@ -1,7 +1,7 @@
 const html = require('xou');
 const vxv = require('vxv');
 const vkey = require('vkey');
-const pages = require('./pages');
+const betterUrl = require('./utils/betterURL');
 
 require('electron-titlebar');
 
@@ -49,18 +49,6 @@ const topbarStyle = vxv`
     &::selection { background: yellow; }
   }
 `;
-
-const betterUrl = (url) => {
-  if (url.startsWith('file:///')) {
-    for (let p in pages) {
-      if (url.indexOf(pages[p].substr(1)) != -1) {
-        return `https://${ p }`;
-      }
-    }
-  }
-
-  return url;
-};
 
 module.exports = (emitter, state) => {
   let width = document.body.clientWidth - 300;
