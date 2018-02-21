@@ -7,35 +7,10 @@ const electron = require('electron');
 const { BrowserWindow } = electron.remote;
 const path = require('path');
 
-const pages = require('./pages');
+const pages = require('./utils/pages');
+const isCargoURL = require('./utils/isCargoURL');
+const uuid = require('./utils/uuid');
 
-const isCargoUrl = (url) => {
-  if (url.startsWith('file:///')) {
-    for (let p in pages) {
-      if (url.indexOf(pages[p].substr(1)) != -1) {
-        return true;
-      }
-    }
-  }
-
-  return false;
-};
-
-const uuid = () => {
-  let uuid = '', i, random;
-
-  for (i = 0; i < 32; i++) {
-    random = Math.random() * 16 | 0;
-
-    if (i == 8 || i == 12 || i == 16 || i == 20) {
-      uuid += "-"
-    }
-
-    uuid += (i == 12 ? 4 : (i == 16 ? (random & 3 | 8) : random)).toString(16);
-  }
-
-  return uuid;
-}
 
 module.exports = (emitter, state) => {
   let focusedView = -1;
