@@ -73,8 +73,12 @@ You can use one of our precompiled [binaries](https://github.com/herber/cargo/re
     <td>Reload</td>
   </tr>
   <tr>
-    <td class="shortcut">command + h / ctrl + h</td>
+    <td class="shortcut">command + shift + h / ctrl + shift + h</td>
     <td>Navigate to home.cargo</td>
+  </tr>
+  <tr>
+    <td class="shortcut">command + h / ctrl + h</td>
+    <td>Open history</td>
   </tr>
   <tr>
     <td class="shortcut">command + t / ctrl + t</td>
@@ -109,10 +113,7 @@ Cargo is still very much work in progress, but we can work together to make it t
 #### TODO
 
  - Tests
- - History
  - Design improvements
- - Use cargo for new windows
- - Downloads
  - Settings
     - Search engine
     - Darkmode
