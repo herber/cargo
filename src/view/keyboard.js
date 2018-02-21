@@ -11,6 +11,11 @@ module.exports = (emitter, state) => {
     return false;
   });
 
+  mousetrap.bind(['command+h', 'ctrl+h'], () => {
+    emitter.emit('history-toggle');
+    return false;
+  });
+
   mousetrap.bind(['command+shift+d', 'ctrl+shift+d'], () => {
     emitter.emit('webview-devtools');
     return false;
@@ -36,7 +41,7 @@ module.exports = (emitter, state) => {
     return false;
   });
 
-  Mousetrap.bind(['command+h', 'ctrl+h'], () => {
+  Mousetrap.bind(['command+shift+h', 'ctrl+shift+h'], () => {
     emitter.emit('webview-home');
     return false;
   });
