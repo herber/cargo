@@ -2,6 +2,7 @@ const html = require('xou');
 const vxv = require('vxv');
 const alert = require('./alert.js');
 const betterUrl = require('./utils/betterURL');
+const dotify = require('./utils/dotify');
 
 const styles = vxv`
 top: 41px;
@@ -107,14 +108,6 @@ li.active {
 
 let toggle = false;
 let a = () => {};
-
-const dotify = (str) => {
-  if (str.length > 25) {
-    return str.substr(0, 22) + '...';
-  }
-
-  return str;
-};
 
 module.exports = (emitter, state) => {
   const render = () => {
