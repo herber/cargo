@@ -46,7 +46,9 @@ module.exports = (emitter, state) => {
     const webview = document.querySelector(`#${ state.views[focusedView].id }`);
     state.url = webview.getURL();
     emitter.emit('titlebar-url-updated');
-    emitter.emit('history-navigated', { url: state.url, title: webview.getTitle() });
+    setTimeout(() => {
+      emitter.emit('history-navigated', { url: state.url, title: webview.getTitle() });
+    }, 20);
   };
 
   const click = () => {
