@@ -150,6 +150,8 @@ module.exports = (emitter, state) => {
     state.views.splice(id, 1);
     focusedView = 0;
 
+    el.element.remove();
+
     if (state.views.length == 0) {
       emitter.emit('tabs-db-flush');
 
