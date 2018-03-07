@@ -1,6 +1,6 @@
 const nprogress = require('nprogress');
 
-module.exports = (emitter) => {
+module.exports = emitter => {
   nprogress.configure({ showSpinner: false });
 
   emitter.on('progress-start', () => {
@@ -9,5 +9,5 @@ module.exports = (emitter) => {
 
   emitter.on('progress-stop', () => {
     nprogress.done();
-  })
+  });
 };

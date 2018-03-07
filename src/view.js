@@ -36,7 +36,7 @@ db.version(1).stores({
   tabRestore: 'url'
 });
 
-db.tabRestore.count((count) => {
+db.tabRestore.count(count => {
   if (count == 0) {
     emitter.emit('webview-create');
   } else {
@@ -44,7 +44,7 @@ db.tabRestore.count((count) => {
       emitter.emit('webview-create', view.url);
     });
   }
-})
+});
 
 setInterval(() => {
   db.delete().then(() => {
@@ -56,11 +56,14 @@ setInterval(() => {
     } catch (err) {}
 
     for (let view of state.views) {
-      db.tabRestore.put({ url: document.querySelector('#' + view.id).getURL(), title: document.querySelector('#' + view.id).getTitle() });
+      db.tabRestore.put({
+        url: document.querySelector('#' + view.id).getURL(),
+        title: document.querySelector('#' + view.id).getTitle()
+      });
     }
   });
 }, 500);
 
 emitter.on('tabs-db-flush', () => {
   db.delete();
-})
+});

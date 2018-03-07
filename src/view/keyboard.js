@@ -85,7 +85,6 @@ module.exports = (emitter, state) => {
 
   for (let i = 1; i <= 9; i++) {
     Mousetrap.bind(['command+' + i, 'ctrl+' + i], () => {
-
       emitter.emit('tabs-go-to', i - 1);
       return false;
     });

@@ -55,10 +55,10 @@ module.exports = (emitter, state) => {
   if (width > 500) width = 500;
 
   const element = html`<div>
-    <div class="${ topbarStyle }">
+    <div class="${topbarStyle}">
       <div id="electron-titlebar" class="inset bar"></div>
       <span class="bg"></span>
-      <input type="text" class="input urlbar" style="width: ${ width }px" value="${ state.url }">
+      <input type="text" class="input urlbar" style="width: ${width}px" value="${state.url}">
     </div>
   </div>`;
 
@@ -92,10 +92,14 @@ module.exports = (emitter, state) => {
     state.hovering = false;
   });
 
-  document.querySelector('.urlbar').addEventListener('keydown', (ev) => {
-    if (vkey[ev.keyCode] == '<enter>') {
-      ev.preventDefault();
-      emitter.emit('navigate', document.querySelector('.urlbar').value);
-    }
-  }, false);
+  document.querySelector('.urlbar').addEventListener(
+    'keydown',
+    ev => {
+      if (vkey[ev.keyCode] == '<enter>') {
+        ev.preventDefault();
+        emitter.emit('navigate', document.querySelector('.urlbar').value);
+      }
+    },
+    false
+  );
 };

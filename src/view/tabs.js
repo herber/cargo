@@ -111,10 +111,10 @@ let a = () => {};
 
 module.exports = (emitter, state) => {
   const render = () => {
-    const el = html`<div class="${ styles }">
+    const el = html`<div class="${styles}">
       <ul class="tabs-bar">
-        ${ state.views.map((view, id) => {
-          const webview = document.querySelector(`#${ view.id }`);
+        ${state.views.map((view, id) => {
+          const webview = document.querySelector(`#${view.id}`);
           const active = view.element.style.display == 'block' ? true : false;
           let title = 'Loading';
 
@@ -132,12 +132,12 @@ module.exports = (emitter, state) => {
 
           let closeClicked = false;
 
-          return html`<li class="${ active == true ? 'active' : '' }" onclick=${ () => {
+          return html`<li class="${active == true ? 'active' : ''}" onclick=${() => {
             if (!closeClicked) {
               emitter.emit('webview-change', id);
               emitter.emit('tabs-render');
             }
-          } }><a class="nav">${ title } <span class="close" onclick=${ (e) => {
+          }}><a class="nav">${title} <span class="close" onclick=${e => {
             closeClicked = true;
             e.preventDefault();
             emitter.emit('webview-remove', id);
@@ -145,8 +145,8 @@ module.exports = (emitter, state) => {
             setTimeout(() => {
               closeClicked = false;
             }, 10);
-          } }>×</span></a></li>`
-        }) }
+          }}>×</span></a></li>`;
+        })}
       </ul>
     </div>`;
 
@@ -161,12 +161,12 @@ module.exports = (emitter, state) => {
     }
 
     return el;
-  }
+  };
 
   const element = render();
   let closeTabsTimeout = setTimeout(() => {
     emitter.emit('tabs-toggle');
-  }, 10000);;
+  }, 10000);
 
   document.body.appendChild(element);
 
@@ -206,7 +206,7 @@ module.exports = (emitter, state) => {
     }
   });
 
-  emitter.on('tabs-create', (src) => {
+  emitter.on('tabs-create', src => {
     emitter.emit('webview-create', src);
     emitter.emit('tabs-render');
   });

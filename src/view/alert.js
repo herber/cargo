@@ -43,10 +43,10 @@ module.exports = opts => {
     throw new Error('position must be `top` or `bottom`');
   }
 
-  const heading = (opts.noH1 == false) ? xou`<h1>${opts.heading}</h1>` : '';
+  const heading = opts.noH1 == false ? xou`<h1>${opts.heading}</h1>` : '';
 
   const element = xou`<div class="${alertStyles} ${opts.position} ${opts.classes.join(' ')}">
-    ${ heading }
+    ${heading}
     <p>${opts.text}</p>
   </div>`;
 

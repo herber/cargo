@@ -11,7 +11,6 @@ const pages = require('./utils/pages');
 const isCargoURL = require('./utils/isCargoURL');
 const uuid = require('./utils/uuid');
 
-
 module.exports = (emitter, state) => {
   let focusedView = -1;
 
@@ -23,13 +22,13 @@ module.exports = (emitter, state) => {
   };
 
   const didStopLoading = () => {
-    const webview = document.querySelector(`#${ state.views[focusedView].id }`);
+    const webview = document.querySelector(`#${state.views[focusedView].id}`);
     webview.style.background = 'white';
     emitter.emit('progress-stop');
   };
 
   const pageTitleUpdated = () => {
-    const webview = document.querySelector(`#${ state.views[focusedView].id }`);
+    const webview = document.querySelector(`#${state.views[focusedView].id}`);
     state.title = 'Loading';
     state.url = '';
 
@@ -42,8 +41,8 @@ module.exports = (emitter, state) => {
     emitter.emit('tabs-render');
   };
 
-  const didNavigate = (e) => {
-    const webview = document.querySelector(`#${ state.views[focusedView].id }`);
+  const didNavigate = e => {
+    const webview = document.querySelector(`#${state.views[focusedView].id}`);
     state.url = webview.getURL();
     emitter.emit('titlebar-url-updated');
     setTimeout(() => {
@@ -55,13 +54,13 @@ module.exports = (emitter, state) => {
     emitter.emit('titlebar-title-updated');
   };
 
-  const loadingError = (err) => {
+  const loadingError = err => {
     console.log(err);
-    const webview = document.querySelector(`#${ state.views[focusedView].id }`);
+    const webview = document.querySelector(`#${state.views[focusedView].id}`);
     webview.setAttribute('src', './pages/error.html');
   };
 
-  const newWindow = (e) => {
+  const newWindow = e => {
     const protocol = url.parse(e.url).protocol;
 
     if (e.disposition == 'new-window') {
@@ -77,13 +76,18 @@ module.exports = (emitter, state) => {
       });
 
       win.on('closed', () => {
-        win = null
+        win = null;
       });
 
       win.loadURL(e.url);
 
       win.setMenu(null);
-    } else if (e.disposition == 'foreground-tab' || e.disposition == 'background-tab' || e.disposition == 'default' || e.disposition == 'other') {
+    } else if (
+      e.disposition == 'foreground-tab' ||
+      e.disposition == 'background-tab' ||
+      e.disposition == 'default' ||
+      e.disposition == 'other'
+    ) {
       emitter.emit('tabs-create', e.url);
     }
   };
@@ -91,7 +95,7 @@ module.exports = (emitter, state) => {
   /*
     Tab management methods
   */
-  const changeView = (id) => {
+  const changeView = id => {
     const el = state.views[id];
 
     if (focusedView >= 0) state.views[focusedView].element.style.display = 'none';
@@ -106,12 +110,12 @@ module.exports = (emitter, state) => {
     emitter.emit('tabs-render');
   };
 
-  const create = (src) => {
+  const create = src => {
     const id = '_wv_' + uuid();
     src = src || './pages/home.html';
 
     const viewElement = html`<div style="display: none;">
-      <webview id="${ id }" src="${ src }" allowpopups autosize style="width: 100%; height: calc(100vh - 40px);"></webview>
+      <webview id="${id}" src="${src}" allowpopups autosize style="width: 100%; height: calc(100vh - 40px);"></webview>
     </div>`;
 
     document.body.appendChild(viewElement);
@@ -123,7 +127,7 @@ module.exports = (emitter, state) => {
 
     changeView(state.views.length - 1);
 
-    const webview = document.querySelector(`#${ id }`);
+    const webview = document.querySelector(`#${id}`);
 
     webview.addEventListener('did-start-loading', didStartLoading);
     webview.addEventListener('did-stop-loading', didStopLoading);
@@ -136,10 +140,10 @@ module.exports = (emitter, state) => {
     return state.views.length - 1;
   };
 
-  const remove = (id) => {
+  const remove = id => {
     const el = state.views[id];
 
-    const webview = document.querySelector(`#${ el.id }`);
+    const webview = document.querySelector(`#${el.id}`);
 
     webview.removeEventListener('did-start-loading', didStartLoading);
     webview.removeEventListener('did-stop-loading', didStopLoading);
@@ -179,42 +183,42 @@ module.exports = (emitter, state) => {
   emitter.on('webview-change', changeView);
 
   emitter.on('webview-set-focus', () => {
-    const webview = document.querySelector(`#${ state.views[focusedView].id }`);
+    const webview = document.querySelector(`#${state.views[focusedView].id}`);
     webview.focus();
   });
 
   emitter.on('webview-devtools', () => {
-    const webview = document.querySelector(`#${ state.views[focusedView].id }`);
+    const webview = document.querySelector(`#${state.views[focusedView].id}`);
     webview.openDevTools();
   });
 
   emitter.on('webview-back', () => {
-    const webview = document.querySelector(`#${ state.views[focusedView].id }`);
+    const webview = document.querySelector(`#${state.views[focusedView].id}`);
     webview.goBack();
   });
 
   emitter.on('webview-forward', () => {
-    const webview = document.querySelector(`#${ state.views[focusedView].id }`);
+    const webview = document.querySelector(`#${state.views[focusedView].id}`);
     webview.goForward();
   });
 
   emitter.on('webview-reload', () => {
-    const webview = document.querySelector(`#${ state.views[focusedView].id }`);
+    const webview = document.querySelector(`#${state.views[focusedView].id}`);
     webview.reload();
   });
 
   emitter.on('webview-home', () => {
-    const webview = document.querySelector(`#${ state.views[focusedView].id }`);
+    const webview = document.querySelector(`#${state.views[focusedView].id}`);
     webview.setAttribute('src', './pages/home.html');
   });
 
   emitter.on('webview-about', () => {
-    const webview = document.querySelector(`#${ state.views[focusedView].id }`);
+    const webview = document.querySelector(`#${state.views[focusedView].id}`);
     webview.setAttribute('src', './pages/about.html');
   });
 
-  emitter.on('navigate', (slug) => {
-    const webview = document.querySelector(`#${ state.views[focusedView].id }`);
+  emitter.on('navigate', slug => {
+    const webview = document.querySelector(`#${state.views[focusedView].id}`);
     webview.focus();
 
     const url = normalizeUrl(slug);
@@ -235,7 +239,7 @@ module.exports = (emitter, state) => {
         webview.loadURL(slug);
       }
     } else {
-      webview.loadURL(`https://duckduckgo.com/?q=${ document.querySelector('.urlbar').value }`);
+      webview.loadURL(`https://duckduckgo.com/?q=${document.querySelector('.urlbar').value}`);
     }
   });
 
@@ -251,7 +255,7 @@ module.exports = (emitter, state) => {
     }
   });
 
-  emitter.on('tabs-go-to', (id) => {
+  emitter.on('tabs-go-to', id => {
     if (id < state.views.length && id >= 0) {
       changeView(id);
     }
