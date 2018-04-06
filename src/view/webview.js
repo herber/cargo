@@ -217,10 +217,11 @@ module.exports = (emitter, state) => {
     webview.setAttribute('src', './pages/about.html');
   });
 
-  emitter.on('navigate', slug => {
+  emitter.on('navigate', options => {
     const webview = document.querySelector(`#${state.views[focusedView].id}`);
     webview.focus();
 
+    let slug = options.slug;
     const url = normalizeUrl(slug);
     const parsed = parse(url, true);
 
@@ -239,7 +240,10 @@ module.exports = (emitter, state) => {
         webview.loadURL(slug);
       }
     } else {
-      webview.loadURL(`https://duckduckgo.com/?q=${document.querySelector('.urlbar').value}`);
+      slug = options.expand
+        ? `http://www.${options.slug}.com`
+        : `https://duckduckgo.com/?q=${options.slug}`;
+      webview.loadURL(slug);
     }
   });
 

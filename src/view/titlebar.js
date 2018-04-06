@@ -99,7 +99,10 @@ module.exports = (emitter, state) => {
     ev => {
       if (vkey[ev.keyCode] == '<enter>') {
         ev.preventDefault();
-        emitter.emit('navigate', document.querySelector('.urlbar').value);
+        emitter.emit('navigate', {
+          slug: document.querySelector('.urlbar').value,
+          expand: ev.ctrlKey
+        });
       }
     },
     false
