@@ -53,6 +53,10 @@ You can use one of our precompiled [binaries](https://github.com/herber/cargo/re
     <td>Open menu</td>
   </tr>
   <tr>
+    <td class="shortcut">ctrl + enter</td>
+    <td>Add www. + .com</td>
+  </tr>
+  <tr>
     <td class="shortcut">command + shift + d / ctrl + shift + d</td>
     <td>Open devtools</td>
   </tr>
