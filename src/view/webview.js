@@ -225,12 +225,12 @@ module.exports = (emitter, state) => {
     const url = normalizeUrl(slug);
     const parsed = parse(url, true);
 
-    if (!slug.startsWith('http://') && !slug.startsWith('https://')) {
-      slug = 'http://' + slug;
-    }
-
     if (url.startsWith('file:///')) {
       return webview.loadURL(slug);
+    }
+
+    if (!slug.startsWith('http://') && !slug.startsWith('https://')) {
+      slug = 'http://' + slug;
     }
 
     if (parsed.domain != null && parsed.isValid == true) {
