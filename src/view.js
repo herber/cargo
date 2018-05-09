@@ -2,12 +2,8 @@ const path = require('path');
 module.paths.push(path.resolve('../node_modules'));
 
 const mitt = require('mitt');
-<<<<<<< HEAD
 const keyval = require('idb-keyval');
-=======
-const dexie = require('dexie');
 // const Store = require('electron-store');
->>>>>>> 4dd9720d1f8e08d4558f0d7b35177cc529d4985f
 
 const webview = require('./view/webview');
 const keyboard = require('./view/keyboard');
