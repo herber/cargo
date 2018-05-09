@@ -1,4 +1,3 @@
-const dexie = require('dexie');
 const html = require('xou');
 const vxv = require('vxv');
 const alert = require('./alert.js');
@@ -65,11 +64,11 @@ const overlayStyles = vxv`
 let toggle = false;
 let a = () => {};
 
-const db = new dexie('history');
-
-db.version(1).stores({
-  visit: 'url, title, timestamp'
-});
+// const db = new dexie('history');
+//
+// db.version(1).stores({
+//   visit: 'url, title, timestamp'
+// });
 
 module.exports = emitter => {
   const titleBarOverlay = html`<div class="${overlayStyles}">History</div>`;
@@ -101,27 +100,27 @@ module.exports = emitter => {
         history.removeChild(child);
       }
 
-      db.visit
-        .where('timestamp')
-        .above(25)
-        .reverse()
-        .each(data => {
-          const date = new Date();
-          date.setTime(data.timestamp);
-
-          const li = html`<li>
-          <span class="title">${dotify(data.title, 30)}</span>
-          <span class="time">${date.toLocaleString()}</span>
-          <br>
-          <span class="url"><a onclick=${() => {
-            emitter.emit('tabs-create', data.url);
-            a();
-            toggle = !toggle;
-          }}>${dotify(data.url, 30)}</a></span>
-        </li>`;
-
-          history.appendChild(li);
-        });
+      // db.visit
+      //   .where('timestamp')
+      //   .above(25)
+      //   .reverse()
+      //   .each(data => {
+      //     const date = new Date();
+      //     date.setTime(data.timestamp);
+      //
+      //     const li = html`<li>
+      //     <span class="title">${dotify(data.title, 30)}</span>
+      //     <span class="time">${date.toLocaleString()}</span>
+      //     <br>
+      //     <span class="url"><a onclick=${() => {
+      //       emitter.emit('tabs-create', data.url);
+      //       a();
+      //       toggle = !toggle;
+      //     }}>${dotify(data.url, 30)}</a></span>
+      //   </li>`;
+      //
+      //     history.appendChild(li);
+      //   });
 
       toggle = !toggle;
     }
@@ -130,10 +129,10 @@ module.exports = emitter => {
   emitter.on('history-navigated', data => {
     const time = new Date().getTime();
 
-    db.visit.add({
-      url: data.url,
-      title: data.title,
-      timestamp: time
-    });
+    // db.visit.add({
+    //   url: data.url,
+    //   title: data.title,
+    //   timestamp: time
+    // });
   });
 };

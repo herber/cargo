@@ -2,7 +2,7 @@ const path = require('path');
 module.paths.push(path.resolve('../node_modules'));
 
 const mitt = require('mitt');
-const dexie = require('dexie');
+const keyval = require('idb-keyval');
 
 const webview = require('./view/webview');
 const keyboard = require('./view/keyboard');
@@ -27,43 +27,34 @@ keyboard(emitter, state);
 
 setTimeout(() => {
   tabs(emitter, state);
-}, 400);
+}, 200);
 
 document.querySelector('.urlbar').focus();
 
-let db = new dexie('tabs');
-db.version(1).stores({
-  tabRestore: 'url'
-});
+keyval.get('tabs').then((val) => {
+  if (val == undefined) {
+    keyval.set('tabs', []);
+  }
 
-db.tabRestore.count(count => {
-  if (count == 0) {
+  if (val.length == 0) {
     emitter.emit('webview-create');
   } else {
-    db.tabRestore.each(view => {
-      emitter.emit('webview-create', view.url);
-    });
+    for (let v of val) {
+      emitter.emit('webview-create', v);
+    }
   }
-});
+})
 
 setInterval(() => {
-  db.delete().then(() => {
-    try {
-      db = new dexie('tabs');
-      db.version(1).stores({
-        tabRestore: 'url'
-      });
-    } catch (err) {}
+  const tabs = [];
 
-    for (let view of state.views) {
-      db.tabRestore.put({
-        url: document.querySelector('#' + view.id).getURL(),
-        title: document.querySelector('#' + view.id).getTitle()
-      });
-    }
-  });
+  for (let view of state.views) {
+    tabs.push(document.querySelector('#' + view.id).getURL());
+  }
+
+  keyval.set('tabs', tabs);
 }, 500);
 
 emitter.on('tabs-db-flush', () => {
-  db.delete();
+  keyval.set('tabs', []);
 });
