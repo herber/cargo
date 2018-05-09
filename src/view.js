@@ -2,7 +2,12 @@ const path = require('path');
 module.paths.push(path.resolve('../node_modules'));
 
 const mitt = require('mitt');
+<<<<<<< HEAD
 const keyval = require('idb-keyval');
+=======
+const dexie = require('dexie');
+// const Store = require('electron-store');
+>>>>>>> 4dd9720d1f8e08d4558f0d7b35177cc529d4985f
 
 const webview = require('./view/webview');
 const keyboard = require('./view/keyboard');
@@ -11,11 +16,15 @@ const titlebar = require('./view/titlebar');
 const tabs = require('./view/tabs');
 const progress = require('./view/progress');
 const history = require('./view/history');
+// const onboarding = require('./view/onboarding');
 
 const emitter = mitt();
+// const store = new Store();
+
 const state = {
   url: 'https://home.cargo',
-  views: []
+  views: [],
+  // store
 };
 
 titlebar(emitter, state);
@@ -24,6 +33,7 @@ history(emitter);
 webview(emitter, state);
 menu(emitter, state);
 keyboard(emitter, state);
+// onboarding(emitter, state);
 
 setTimeout(() => {
   tabs(emitter, state);

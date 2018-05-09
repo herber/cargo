@@ -6,49 +6,51 @@ const betterUrl = require('./utils/betterURL');
 require('electron-titlebar');
 
 const topbarStyle = vxv`
-  width: 100%;
-  -webkit-app-region: drag;
+width: 100%;
+-webkit-app-region: drag;
 
-  & .bar {
-    border-bottom: solid #BDBDBD 1px;
-    background: white;
+& .bar {
+  border-bottom: solid #BDBDBD 1px;
+  background: white;
+}
+
+& .bg {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 40px;
+  text-align: center;
+  color: #616161;
+}
+
+& .input {
+  text-align: center;
+  background: white;
+  color: #616161;
+  padding: 5px 10px;
+  width: 550px;
+  margin: 7px auto 0px auto;
+  border: solid transparent 1px;
+  border-radius: 3px;
+  outline: none;
+  transition: all .3s;
+  -webkit-app-region: no-drag;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  position: fixed;
+
+  &:hover, &:focus {
+    border: solid #BDBDBD 1px;
+    background: #FAFAFA;
   }
 
-  & .bg {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    height: 40px;
-    text-align: center;
-    color: #616161;
-  }
-
-  & .input {
-    text-align: center;
-    background: white;
-    color: #616161;
-    padding: 5px 10px;
-    width: 550px;
-    margin: 7px auto 0px auto;
-    border: solid transparent 1px;
-    border-radius: 3px;
-    outline: none;
-    transition: all .3s;
-    -webkit-app-region: no-drag;
-    left: 0px;
-    right: 0px;
-    top: 0px;
-    position: fixed;
-
-    &:hover, &:focus {
-      border: solid #BDBDBD 1px;
-      background: #FAFAFA;
-    }
-
-    &::-moz-selection { background: yellow; }
-    &::selection { background: yellow; }
-  }
+  &::-moz-selection { background: yellow; }
+  &::selection { background: yellow; }
+}
 `;
+
+console.log(topbarStyle);
 
 module.exports = (emitter, state) => {
   let width = document.body.clientWidth - 300;
@@ -97,7 +99,10 @@ module.exports = (emitter, state) => {
     ev => {
       if (vkey[ev.keyCode] == '<enter>') {
         ev.preventDefault();
-        emitter.emit('navigate', document.querySelector('.urlbar').value);
+        emitter.emit('navigate', {
+          slug: document.querySelector('.urlbar').value,
+          expand: ev.ctrlKey
+        });
       }
     },
     false
