@@ -45,8 +45,7 @@
     "devtron": "^1.1.0",
     "electron": "^1.3.3",
     "electron-builder": "^20.0.4",
-    "formatted": "^1.0.0",
-    "lerna": "^2.5.1"
+    "formatted": "^1.0.0"
   },
   "build": {
     "appId": "com.cargo",
