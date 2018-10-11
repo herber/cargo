@@ -115,7 +115,7 @@ You can use one of our precompiled [binaries](https://github.com/herber/cargo/re
   </tr>
     <tr>
     <td class="shortcut">command + shift + t  / ctrl + shift + t</td>
-    <td>Darkmode</td>
+    <td>Change to Darkmode</td>
   </tr>
 </table>
 
