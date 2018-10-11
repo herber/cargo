@@ -15,7 +15,7 @@ text-align: center;
 module.exports = (emitter, state) => {
   if (!state.store.has('onboarding-done')) {
     const element = html`<div>
-      <div class="${style}">
+      <div id="onboarding" class="${style}">
         <h1>Hello world</h1>
       </div>
     </div>`;

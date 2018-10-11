@@ -52,7 +52,7 @@ module.exports = (emitter, state) => {
   // })}
   // </table>
 
-  const element = html`<div class="${styles}">
+  const element = html`<div id="menu" class="${styles}">
     <ul>
       <li><a class="home">Home</a></li>
       <li><a class="about">About</a></li>

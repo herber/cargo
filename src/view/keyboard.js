@@ -6,6 +6,11 @@ module.exports = (emitter, state) => {
     return false;
   });
 
+  mousetrap.bind(['command+shift+t', 'ctrl+shift+t'], () => {
+    emitter.emit('dark-mode');
+    return false;
+  });
+
   mousetrap.bind(['command+m', 'ctrl+m'], () => {
     emitter.emit('menu-toggle');
     return false;

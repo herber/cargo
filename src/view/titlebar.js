@@ -57,7 +57,7 @@ module.exports = (emitter, state) => {
   if (width > 500) width = 500;
 
   const element = html`<div>
-    <div class="${topbarStyle}">
+    <div id="titlebar" class="${topbarStyle}">
       <div id="electron-titlebar" class="inset bar"></div>
       <span class="bg"></span>
       <input type="text" class="input urlbar" style="width: ${width}px" value="${state.url}">

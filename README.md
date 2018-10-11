@@ -45,6 +45,11 @@ You can use one of our precompiled [binaries](https://github.com/herber/cargo/re
 
 ![Medium](https://i.imgur.com/umxDEtU.png)
 
+
+##### DarkMode
+
+![Medium](https://i.imgur.com/1FSXg5d.png)
+
 ## Keyboard shortcuts
 
 <table>
@@ -107,6 +112,10 @@ You can use one of our precompiled [binaries](https://github.com/herber/cargo/re
   <tr>
     <td class="shortcut">command + [number from 1 to 9] / ctrl + [number from 1 to 9]</td>
     <td>Go to n<i style="font-size: .7em;">th</i> tab</td>
+  </tr>
+    <tr>
+    <td class="shortcut">command + shift + t  / ctrl + shift + t</td>
+    <td>Darkmode</td>
   </tr>
 </table>
 
