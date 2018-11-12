@@ -78,3 +78,7 @@
 #titlebar::-moz-selection { background: yellow !important; }
 #titlebar::selection { background: yellow !important; }
 
+#titlebar .button img{
+    filter: invert(0.8);
+}
+
