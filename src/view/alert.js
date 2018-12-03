@@ -45,7 +45,7 @@ module.exports = opts => {
 
   const heading = opts.noH1 == false ? xou`<h1>${opts.heading}</h1>` : '';
 
-  const element = xou`<div class="${alertStyles} ${opts.position} ${opts.classes.join(' ')}">
+  const element = xou`<div class="alert ${alertStyles} ${opts.position} ${opts.classes.join(' ')}">
     ${heading}
     <p>${opts.text}</p>
   </div>`;

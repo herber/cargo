@@ -20,6 +20,7 @@ const emitter = mitt();
 const state = {
   url: 'https://home.cargo',
   views: [],
+  theme: 'light'
   // store
 };
 

@@ -111,7 +111,7 @@ let a = () => {};
 
 module.exports = (emitter, state) => {
   const render = () => {
-    const el = html`<div class="${styles}">
+    const el = html`<div id="tabs" class="${styles}">
       <ul class="tabs-bar">
         ${state.views.map((view, id) => {
           const webview = document.querySelector(`#${view.id}`);

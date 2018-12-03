@@ -1,0 +1,84 @@
+.alert.top{
+    border-bottom-color: #333333 !important;
+}
+
+.alert.bottom{
+    border-top-color: #333333 !important;
+}
+
+#history a{
+  color: black  !important;
+}
+#history{
+   background:  #23272A !important;
+}
+#history li{
+    border-color: #efefef !important;
+}
+
+#history .time{
+    color: #757575 !important;
+}
+#history a{
+    color: white !important;
+}
+
+#history-overlay{  
+    background: #2C2F33 !important;
+    color: white !important;
+}
+
+#menu li a{
+    color: white !important;
+}
+
+#onboarding{
+    background: #23272A !important;
+}
+
+
+#tabs{
+    background: #23272A !important;
+    border-bottom-color: #333333 !important;
+}
+#tabs li{
+    border-right-color: #333333 !important;
+}
+
+#tabs li:hover{
+    background: #23272A !important;
+}
+#tabs li.active{
+    border-bottom-color: white !important;
+}
+#tabs li a{
+  color: white;
+}
+
+#titlebar .bar{
+  border-bottom-color:  #333333 !important;
+  background: #23272A !important;
+}
+
+#titlebar .bg{
+    color: #616161 !important;
+}
+
+#titlebar .input{
+    background: #2C2F33 !important;
+    color: white !important;
+}
+
+
+#titlebar:hover, #titlebar:focus{
+    border-color: #2C2F33  !important;
+    background: #23272A !important;
+}
+
+#titlebar::-moz-selection { background: yellow !important; }
+#titlebar::selection { background: yellow !important; }
+
+#titlebar .button img{
+    filter: invert(0.8);
+}
+

@@ -174,6 +174,13 @@ module.exports = (emitter, state) => {
 
     changeView(id);
   };
+  /*
+    DarkMode 
+  */
+  const changeTheme = name => {
+    state.theme = name;
+    document.getElementById('theme').setAttribute("href","./static/theme/"+state.theme+".css" );
+  };
 
   /*
     Events
@@ -209,7 +216,7 @@ module.exports = (emitter, state) => {
 
   emitter.on('webview-home', () => {
     const webview = document.querySelector(`#${state.views[focusedView].id}`);
-    webview.setAttribute('src', './pages/home.html');
+    webview.setAttribute('src', './pages/home.html#'+state.theme);
   });
 
   emitter.on('webview-about', () => {
@@ -268,4 +275,12 @@ module.exports = (emitter, state) => {
   emitter.on('tabs-last', () => {
     changeView(state.views.length - 1);
   });
+
+  emitter.on('dark-mode', () => {
+      if(state.theme === 'dark'){
+        changeTheme('light');
+      }else{
+        changeTheme('dark');
+      }
+    });
 };
