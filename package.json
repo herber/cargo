@@ -14,7 +14,7 @@
   "scripts": {
     "test": "formatted",
     "start": "electron .",
-    "build": "build .",
+    "build": "electron-builder .",
     "build:win32": "npm run build -- --win",
     "build:mac": "npm run build -- --mac",
     "build:all": "npm run build -- --all"
@@ -29,7 +29,7 @@
     "@cargohq/keyval": "^1.1.0",
     "electron-debug": "^1.0.0",
     "electron-is-dev": "^0.3.0",
-    "electron-store": "^1.3.0",
+    "electron-store": "^2.0.0",
     "electron-titlebar": "^0.0.3",
     "idb-keyval": "^3.0.3",
     "mitt": "^1.1.3",
@@ -44,7 +44,7 @@
   "devDependencies": {
     "devtron": "^1.1.0",
     "electron": "^1.3.3",
-    "electron-builder": "^20.0.4",
+    "electron-builder": "^20.38.5",
     "formatted": "^1.0.0"
   },
   "build": {
