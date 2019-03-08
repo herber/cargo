@@ -38,7 +38,7 @@ setTimeout(() => {
 
 document.querySelector('.urlbar').focus();
 
-keyval.get('tabs').then((val) => {
+keyval.get('tabs').then(val => {
   if (val == undefined) {
     keyval.set('tabs', []);
   }
@@ -50,7 +50,7 @@ keyval.get('tabs').then((val) => {
       emitter.emit('webview-create', v);
     }
   }
-})
+});
 
 setInterval(() => {
   const tabs = [];
