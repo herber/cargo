@@ -61,27 +61,29 @@ module.exports = (emitter, state) => {
   };
 
   const newWindow = e => {
+    e.preventDefault();
+
     const protocol = url.parse(e.url).protocol;
 
     if (e.disposition == 'new-window') {
-      let win = new BrowserWindow({
-        width: 800,
-        height: 600,
-        modal: true,
-        webPreferences: {
-          nodeIntegration: false
-        },
-        title: 'Cargo',
-        icon: path.join(__dirname, '../static/icon.png')
-      });
+      // let win = new BrowserWindow({
+      //   width: 800,
+      //   height: 600,
+      //   modal: true,
+      //   webPreferences: {
+      //     nodeIntegration: false
+      //   },
+      //   title: 'Cargo',
+      //   icon: path.join(__dirname, '../static/icon.png')
+      // });
 
-      win.on('closed', () => {
-        win = null;
-      });
+      // win.on('closed', () => {
+      //   win = null;
+      // });
 
-      win.loadURL(e.url);
+      // win.loadURL(e.url);
 
-      win.setMenu(null);
+      // win.setMenu(null);
     } else if (
       e.disposition == 'foreground-tab' ||
       e.disposition == 'background-tab' ||
@@ -115,7 +117,9 @@ module.exports = (emitter, state) => {
     src = src || './pages/home.html';
 
     const viewElement = html`<div style="display: none;">
-      <webview id="${id}" src="${src}" allowpopups autosize style="width: 100%; height: calc(100vh - 40px);"></webview>
+      <webview id="${id}" src="${
+      src
+    }" allowpopups autosize style="width: 100%; height: calc(100vh - 40px);"></webview>
     </div>`;
 
     document.body.appendChild(viewElement);
@@ -135,7 +139,7 @@ module.exports = (emitter, state) => {
     webview.addEventListener('did-navigate', didNavigate);
     webview.addEventListener('click', click);
     webview.addEventListener('did-fail-load', loadingError);
-    webview.addEventListener('new-window', newWindow);
+    // webview.addEventListener('new-window', newWindow);
 
     return state.views.length - 1;
   };
@@ -151,7 +155,7 @@ module.exports = (emitter, state) => {
     webview.removeEventListener('did-navigate', didNavigate);
     webview.removeEventListener('click', click);
     webview.removeEventListener('did-fail-load', loadingError);
-    webview.removeEventListener('new-window', newWindow);
+    // webview.removeEventListener('new-window', newWindow);
 
     state.views.splice(id, 1);
     focusedView = 0;
@@ -179,7 +183,7 @@ module.exports = (emitter, state) => {
   */
   const changeTheme = name => {
     state.theme = name;
-    document.getElementById('theme').setAttribute("href","./static/theme/"+state.theme+".css" );
+    document.getElementById('theme').setAttribute('href', './static/theme/' + state.theme + '.css');
   };
 
   /*
@@ -216,7 +220,7 @@ module.exports = (emitter, state) => {
 
   emitter.on('webview-home', () => {
     const webview = document.querySelector(`#${state.views[focusedView].id}`);
-    webview.setAttribute('src', './pages/home.html#'+state.theme);
+    webview.setAttribute('src', './pages/home.html#' + state.theme);
   });
 
   emitter.on('webview-about', () => {
@@ -277,10 +281,10 @@ module.exports = (emitter, state) => {
   });
 
   emitter.on('dark-mode', () => {
-      if(state.theme === 'dark'){
-        changeTheme('light');
-      }else{
-        changeTheme('dark');
-      }
-    });
+    if (state.theme === 'dark') {
+      changeTheme('light');
+    } else {
+      changeTheme('dark');
+    }
+  });
 };
