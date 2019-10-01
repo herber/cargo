@@ -1,0 +1,6 @@
+{
+  "name": "@cargohq/shared-state",
+  "main": "src/index.ts",
+  "private": true,
+  "description": "Minimalist shared state management solution"
+}
