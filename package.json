@@ -47,8 +47,8 @@
     "vkey": "^1.0.1"
   },
   "build": {
-    "appId": "com.cargo",
-    "productName": "cargo",
+    "appId": "space.herber.cargo",
+    "productName": "Cargo",
     "asar": true,
     "npmRebuild": false,
     "directories": {
