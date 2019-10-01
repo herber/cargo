@@ -1,4 +1,7 @@
 node_modules
-/dist
 yarn.lock
 _src
+dist
+.next
+main-out
+.DS_STORE
