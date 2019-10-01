@@ -1,4 +1,10 @@
 <p align="center">
+  ⚠ <b>Before you continue: </b> This branch is used for developing the next version of Cargo. ⚠
+</p>
+
+<br /><br /><br />
+
+<p align="center">
   <img width="200px" src="https://i.imgur.com/XfHbapN.png" />
   <h1 align="center">Cargo</h1>
 </p>
@@ -180,4 +186,4 @@ $ yarn build:all
 
 [The steamlocomotive logo](https://github.com/twitter/twemoji/blob/gh-pages/svg/1f682.svg) by [twemoji](https://github.com/twitter/twemoji) is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
 
-MIT © [Tobias Herber](http://tobihrbr.com)
+MIT © [Tobias Herber](https://herber.space)
