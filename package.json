@@ -4,6 +4,12 @@
   "version": "0.0.1",
   "description": "A browser with a really thin ui",
   "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "main",
+    "renderer",
+    "packages/*"
+  ],
   "repository": "herber/cargo",
   "main": "./main-out/index.js",
   "author": {
@@ -32,12 +38,16 @@
     "@types/react-dom": "^16.0.11",
     "electron": "^7.0.0-beta.5",
     "electron-builder": "^21.2.0",
+    "lerna": "^3.15.0",
     "next": "latest",
     "typescript": "^3.5.3"
   },
   "dependencies": {
+    "@emotion/core": "^10.0.17",
+    "@emotion/styled": "^10.0.17",
     "electron-is-dev": "^1.0.1",
     "electron-next": "^3.1.5",
+    "emotion": "^10.0.17",
     "mousetrap": "^1.6.1",
     "normalize-url": "^2.0.1",
     "nprogress": "^0.2.0",
